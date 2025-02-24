@@ -6,7 +6,7 @@ import joblib
 from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 from nltk.corpus import stopwords
-
+from flask_cors import CORS
 
 
 porter = SnowballStemmer("english")
@@ -27,6 +27,7 @@ from flask import Flask, request, jsonify
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/predict', methods=['POST'])
 def predict():
